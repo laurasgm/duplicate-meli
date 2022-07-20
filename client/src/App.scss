@@ -1,0 +1,26 @@
+@import "~bootstrap/scss/bootstrap";
+
+.breadcrumb-item+.breadcrumb-item::before { content: ">" !important; }
+.nav-bar{
+  background-color: #fef159;
+
+  .search{
+    width: 980px;
+  }
+  .logo{
+    margin-right: 30px;
+  }
+  .search-button{
+    border-radius: 0px 10px 10px 0px;
+    margin-left: -4px;
+    border-color: gainsboro;
+    background-color: gainsboro;
+  }
+}
+.container-body{
+  background-color: #ededed;
+  height: 100vw;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}

@@ -4,18 +4,29 @@ import ProductsComponent from './components/Products';
 import ProductDetailComponent from './components/ProductDetail'
 import {Route, Routes} from 'react-router-dom'
 import NavbarComponent from './components/Navbar';
-
+import Breadcrumb from 'react-bootstrap/Breadcrumb';
+import Container from 'react-bootstrap/esm/Container';
 
 function App() {
   const [search, setSearch] = useState('')
+  const [breadCrumb, setBreadCrumb] = useState("")
+  
   return (
-    <>
-    <NavbarComponent setSearch={setSearch}></NavbarComponent>
-    <Routes>
-      <Route path="/items" element={<ProductsComponent search={search}/>}></Route>
-      <Route path="/item/:id" element={<ProductDetailComponent/>}></Route>
-    </Routes>
-    </>
+    <div className="principal-container-style">
+      <NavbarComponent setSearch={setSearch}></NavbarComponent>
+      <Container >
+        <Breadcrumb className="breadcrumb-style">
+          <Breadcrumb.Item active>Home</Breadcrumb.Item>
+            <Breadcrumb.Item active>
+                {breadCrumb}
+            </Breadcrumb.Item>
+        </Breadcrumb>
+      </Container>
+      <Routes>
+        <Route path="/items" element={<ProductsComponent search={search} setBreadCrumb={setBreadCrumb}/>}></Route>
+        <Route path="/item/:id" element={<ProductDetailComponent/>}></Route>
+      </Routes>
+    </div>
   );
 }
 

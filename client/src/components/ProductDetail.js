@@ -4,31 +4,46 @@ import Breadcrumb from 'react-bootstrap/Breadcrumb';
 import Container from 'react-bootstrap/esm/Container';
 import image from '../assets/coupe.jpeg'
 import Button from 'react-bootstrap/Button';
-
+import {getProductByIdRequest, getProductDescriptionByIdRequest} from '../api/products.api'
+import { useParams } from 'react-router';
 
 function ProductsDetailComponent() {
+    let paramId = useParams();
+    const [product, setProduct] = useState({})
+    const [description, setDescription] = useState("")
+
+    useEffect(() =>{
+        async function loadProductbyid (){
+            const responseProduct = await getProductByIdRequest(paramId.id)
+            if(responseProduct.data){
+                setProduct(responseProduct.data)
+            }
+
+            const responseProductDescription = await getProductDescriptionByIdRequest(paramId.id)
+            if(responseProductDescription.data){
+                setDescription(responseProductDescription.data.plain_text)
+            }
+
+        }
+        loadProductbyid()
+    },[])
+
     return (
         <div className="product-detail-style">
             <Container className="">
-                <Breadcrumb>
-                    <Breadcrumb.Item active>Home</Breadcrumb.Item>
-                    <Breadcrumb.Item active>
-                        Library
-                    </Breadcrumb.Item>
-                    <Breadcrumb.Item active>Data</Breadcrumb.Item>
-                </Breadcrumb>
+                {product?
                 <div className="body">
                     <img
                         alt=""
-                        src={image}
+                        src={product.thumbnail}
                         className="img-style"
                     />
                     <div className="box-detail">
-                        <span className="text-subtitle-style">Nuevo - 234 vendidos</span>
+                        <span className="text-subtitle-style">{product.condition == "new"? "Nuevo":""} - {product.sold_quantity} vendidos</span>
                         <br></br>
-                        <span className="text-title-style">Deco Reverse Sombrero Oxford</span>
+                        <span className="text-title-style">{product.title}</span>
                         <br></br>
-                        <div><span className="text-price-style">$ 10.000</span><span className="text-price-ceros-style">00</span></div>
+                        <div><span className="text-price-style">$ {product.price}</span></div>
                         <br/>
                         <br/>
                         <div className="d-grid gap-2">
@@ -39,9 +54,10 @@ function ProductsDetailComponent() {
                     </div>
                     <div className="text-content-description">
                         <p className="text-title-description">Descripcion del producto</p>
-                        <p className="text-body-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <p className="text-body-description">{description}</p>
                     </div>
                 </div>
+                : null}
             </Container>
         </div>
     )

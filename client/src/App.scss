@@ -1,12 +1,19 @@
 @import "~bootstrap/scss/bootstrap";
 
 .breadcrumb-item+.breadcrumb-item::before { content: ">" !important; }
-.nav-bar{
-  background-color: #fef159;
 
-  .search{
-    width: 980px;
+html,
+body,
+.principal-container-style{
+  background-color: #ededed;
+  width: 100vw;
+  min-height: 100vh;
+  
+  .nav-bar{
+    background-color: #fef159;
+    min-width: 100vh;
   }
+
   .logo{
     margin-right: 30px;
   }
@@ -16,19 +23,9 @@
     border-color: gainsboro;
     background-color: gainsboro;
   }
-}
-.container-body{
-  background-color: #ededed;
-  height: 100vw;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-}
-.principal-container-style{
-  margin: 0px;
-  width: 100%;
-  background-color: #ededed;
+
   .breadcrumb-style{
     margin-top: 10px;
   }
 }
+

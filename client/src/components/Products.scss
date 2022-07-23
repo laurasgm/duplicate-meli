@@ -1,7 +1,4 @@
 .product-style{    
-    background-color: #ededed;
-    width: auto;
-    height: 100vh;
     .card-style{
         margin-bottom: 1px;
         .card-body-style{
@@ -43,15 +40,12 @@
 
 .product-detail-style{    
     background-color: #ededed;
-    height: 100vw;
     .body{
         background-color: white;
         display: block;
         position: relative;
         flex-direction: row;
         justify-content: center;
-        height: 100%;
-        width: 85%;
         .img-style{
             margin: 30px 20px 50px 50px;
             width: 600px;

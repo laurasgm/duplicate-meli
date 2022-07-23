@@ -7,6 +7,11 @@ import Button from 'react-bootstrap/Button';
 import {getProductByIdRequest, getProductDescriptionByIdRequest} from '../api/products.api'
 import { useParams } from 'react-router';
 
+
+/**
+ * Render the product detail screen.
+ * @returns 
+ */
 function ProductsDetailComponent() {
     let paramId = useParams();
     const [product, setProduct] = useState({})
@@ -30,7 +35,7 @@ function ProductsDetailComponent() {
 
     return (
         <div className="product-detail-style">
-            <Container className="">
+            <Container className="col-md-12 col-xs-12 col-sm-12">
                 {product?
                 <div className="body">
                     <img

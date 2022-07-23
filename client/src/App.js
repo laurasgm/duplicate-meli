@@ -7,15 +7,16 @@ import NavbarComponent from './components/Navbar';
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
 import Container from 'react-bootstrap/esm/Container';
 
+
 function App() {
   const [search, setSearch] = useState('')
   const [breadCrumb, setBreadCrumb] = useState("")
-  
+
   return (
-    <div className="principal-container-style">
+    <div className="col-md-12 col-xs-12 principal-container-style">
       <NavbarComponent setSearch={setSearch}></NavbarComponent>
-      <Container >
-        <Breadcrumb className="breadcrumb-style">
+      <Container className="breadcrumb-style" >
+        <Breadcrumb >
           <Breadcrumb.Item active>Home</Breadcrumb.Item>
             <Breadcrumb.Item active>
                 {breadCrumb}

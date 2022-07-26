@@ -21,4 +21,4 @@
 ![Screen Shot 2022-07-24 at 7 21 21 PM](https://user-images.githubusercontent.com/32622393/180673036-cb2dd503-6f73-4717-9341-df782159cbbd.png)
 ![Screen Shot 2022-07-24 at 7 21 04 PM](https://user-images.githubusercontent.com/32622393/180673039-35c099eb-9732-4549-a268-ada3294e5627.png)
 
-### The IP will be updated every time the instance is started again. current IP => 44.206.232.41
+### The IP will be updated every time the instance is started again. current IP => 54.85.41.246
